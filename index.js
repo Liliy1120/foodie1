@@ -60,7 +60,7 @@ function getRestaurants(query){
         key : API_Key,
         location: latLong,
         radius: 32500, 
-        query: query,
+        keyword: query,
         };
 //5. once we have the object(params above) we need to convert it to "foo=bar&bizz=bang" format
     //this is where the function formatQueryParams comes in we run params through it
@@ -92,7 +92,7 @@ function watchForm() {
     //theses two values = another term
     console.log($('.venue-type').val())
         const searchTerm = $('.venue-type').val();
-//3. pass these two values from form 
+//3. pass value from form 
         getRestaurants(searchTerm);
 });
 }
@@ -119,6 +119,15 @@ for (i = 0; i < acc.length; i++) {
 // end of accordian faq
 
 //get current location
+
+
+$(document).ready(function(){
+    $(".submit").click(function(){
+        getLocation();
+        event.preventDefault();
+    });
+  });
+
 var x = document.getElementById("demo");
 console.log(x);
 
@@ -134,7 +143,7 @@ function getLocation() {
 function showPosition(position) {
     let latLong = position.coords.latitude + "," + position.coords.longitude;
     console.log(latLong);
-    console.log($('.venue-type').val())
+    console.log($('.venue-type').val());
     //take .log off later
 }
 
