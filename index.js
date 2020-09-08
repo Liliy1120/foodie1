@@ -5,7 +5,7 @@ const API_KEY = "AIzaSyBdeEMD8FXQ-BwLp1eCbB3IN95zDdnhS7k" //PSAGR4VMTKQJBUN0CIDG
 //for foursquare
 //Client Id= DVIVVUDWK4W2NALLKRFLU5U00BI2E12OLDLRJ5ODEHZPTZDG
 //Client Secret =PSAGR4VMTKQJBUN0CIDGUUIA0QA4NA1JH3BMRAANDRFFKGGE
-const API_URL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
+const searchURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
 
 //6. this function
 function formatQueryParams(params) {
