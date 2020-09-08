@@ -67,7 +67,6 @@ function getRestaurants(query){
 //7. create the URL for the GET request to 
     //by combining the base URL, "?" character, and our query parameters string
     const url = searchURL + '?' + queryString;
-
     console.log(url);
 }
 
@@ -90,7 +89,7 @@ fetch(url, requestOptions)
 //11.otherwise we call response.json and run it through displayResults
 
 function watchForm() {
-    $('form').on("click", event => {
+    $('form').submit("click", event => {
         event.preventDefault();
 //2.retrieve two values from the form have
     //theses two values = another term
