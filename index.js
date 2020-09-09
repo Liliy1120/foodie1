@@ -1,4 +1,4 @@
-const API_KEY = "Bearer iAQyc_4wBvpGPNmjmBB1XUP44Gf6hPfTq3_87wFLPAXTtBpEKsxkrx9ZGdd4Nt5AjbvnZl7Mzo2UapGDSePFZzYnbTGsWvhMhNhOFgKm29CIJ85rMtWuslPHNhVZX3Yx" 
+const API_KEY = "iAQyc_4wBvpGPNmjmBB1XUP44Gf6hPfTq3_87wFLPAXTtBpEKsxkrx9ZGdd4Nt5AjbvnZl7Mzo2UapGDSePFZzYnbTGsWvhMhNhOFgKm29CIJ85rMtWuslPHNhVZX3Yx" 
 //PSAGR4VMTKQJBUN0CIDGUUIA0QA4NA1JH3BMRAANDRFFKGGE" foursquare
 //for google api = 'AIzaSyD3XTQjMngN4V8BsFlm6_eHDQ_zEoyLvYc'
 //for fusion api =  Client ID =KV5xcCMw15aztax0s7REvQ
@@ -58,13 +58,13 @@ function displayResults(responseJson) {
 };
 
 
-function getRestaurants(query){
+function getRestaurants(query, location){
     //4.object called params, params has key-value pairs for each of the URL
     //query parameters we need to provide 
     const params = {
         location: location,
         radius: 32500, 
-        keyword: query,
+        term: query,
         };
     //5. once we have the object(params above) we need to convert it to "foo=bar&bizz=bang" format
     //this is where the function formatQueryParams comes in we run params through it
@@ -74,16 +74,16 @@ function getRestaurants(query){
     let url = searchURL + '?' + queryString;
     console.log(url);
     
-    var myHeaders = new Headers();
-        myHeaders.append("Authorization", "Bearer iAQyc_4wBvpGPNmjmBB1XUP44Gf6hPfTq3_87wFLPAXTtBpEKsxkrx9ZGdd4Nt5AjbvnZl7Mzo2UapGDSePFZzYnbTGsWvhMhNhOFgKm29CIJ85rMtWuslPHNhVZX3Yx");
+    let myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer iAQyc_4wBvpGPNmjmBB1XUP44Gf6hPfTq3_87wFLPAXTtBpEKsxkrx9ZGdd4Nt5AjbvnZl7Mzo2UapGDSePFZzYnbTGsWvhMhNhOFgKm29CIJ85rMtWuslPHNhVZX3Yx");
     
-    var requestOptions = {
+    let requestOptions = {
       method: 'GET',
       headers: myHeaders,
       redirect: 'follow'
     };
     
-    fetch("https://api.yelp.com/v3/businesses/search?location=menifee", requestOptions)
+    fetch("https://api.yelp.com/v3/businesses/search", requestOptions)
       .then(response => response.text())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
@@ -94,17 +94,29 @@ function getRestaurants(query){
 }
 
 function watchForm() {
-    $('form').submit(event => {
+    $('.search-venueform').submit(event => {
         event.preventDefault();
         getLocation();
-//2.retrieve two values from the form have
+    //2.retrieve two values from the form have
     //theses two values = another term
     console.log($('.venue-type').val())
+    console.log($(".city_address").val())
         const searchTerm = $('.venue-type').val();
-//3. pass value from form 
-        getRestaurants(searchTerm);
+        const locationadd = $(".city_address").val()
+    //3. pass value from form 
+        getRestaurants(searchTerm, locationadd);
 });
 }
+
+
+function unhideKeyword(){
+    $('.go').submit(function(e){
+        e.preventDefault();
+        $(".search-venue").removeClass(hidden)
+        $(".button").hide();
+        console.log('button worked');
+    });
+};
 
 //start of accordian faq 
 var acc = document.getElementsByClassName("accordion");
@@ -145,22 +157,6 @@ function showPosition(position) {
     //take .log off later
 }
 
-function calculate(lat,lng){
-    var homeCoord = new Array();
-    console.log(lng);
-    console.log(lat);
-
-    homeCoord[0] = lat;
-    homeCoord[1] = lng;
-    awayCoord = myGeocodeFirst();
-
-    var combinedLat = homeCoord[0]+awayCoord[0];
-    var combinedLong = awayCoord[1]+homeCoord[1];
-
-    console.log(combinedLat+" "+combinedLong);
-}
-
-
-
 //1.when app loads run this function
+unhideKeyword();
 watchForm();
