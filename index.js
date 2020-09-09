@@ -90,6 +90,7 @@ function getRestaurants(query){
 function watchForm() {
     $('form').submit(event => {
         event.preventDefault();
+        getLocation();
 //2.retrieve two values from the form have
     //theses two values = another term
     console.log($('.venue-type').val())
