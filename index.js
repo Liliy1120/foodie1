@@ -53,43 +53,42 @@ function displayResults(responseJson) {
 
 
 function getRestaurants(query){
-//4.object called params, params has key-value pairs for each of the URL
-//query parameters we need to provide 
+    //4.object called params, params has key-value pairs for each of the URL
+    //query parameters we need to provide 
     const params = {
-        key : API_Key,
-        location: latLong,
+        key : API_KEY,
+        location: showPosition(position),
         radius: 32500, 
         keyword: query,
         };
-//5. once we have the object(params above) we need to convert it to "foo=bar&bizz=bang" format
+    //5. once we have the object(params above) we need to convert it to "foo=bar&bizz=bang" format
     //this is where the function formatQueryParams comes in we run params through it
     const queryString = formatQueryParams(params)
-//7. create the URL for the GET request to 
+    //7. create the URL for the GET request to 
     //by combining the base URL, "?" character, and our query parameters string
-    const url = searchURL + '?' + queryString;
+    let url = searchURL + '?' + queryString;
     console.log(url);
-}
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", "bearer O5zu0u-oz1WYnaeu2INxGAQrSR3kbaxiHCHyHT4H-aqt57J1OclzNEP7c7wDVXIH2f1Pj6HdGbJ1l2Jn3RsauY1UCG95jQmG0c-mcchWG3mCdvpL2-8wPp6xOctPX3Yx");
 
-var myHeaders = new Headers();
-myHeaders.append("Authorization", "bearer O5zu0u-oz1WYnaeu2INxGAQrSR3kbaxiHCHyHT4H-aqt57J1OclzNEP7c7wDVXIH2f1Pj6HdGbJ1l2Jn3RsauY1UCG95jQmG0c-mcchWG3mCdvpL2-8wPp6xOctPX3Yx");
-
-var requestOptions = {
+    var requestOptions = {
   method: 'GET',
   headers: myHeaders,
   redirect: 'follow'
-};
+    };
 
-fetch(url, requestOptions)
+    fetch(url, requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
-//8.call fetch pass url through it (line67)      
-//9.confirm fetch was ok (.then block)
-//10.if not ok we throw an error
-//11.otherwise we call response.json and run it through displayResults
+    //8.call fetch pass url through it (line67)      
+    //9.confirm fetch was ok (.then block)
+    //10.if not ok we throw an error
+    //11.otherwise we call response.json and run it through displayResults
+}
 
 function watchForm() {
-    $('form').submit("click", event => {
+    $('form').submit(event => {
         event.preventDefault();
 //2.retrieve two values from the form have
     //theses two values = another term
@@ -123,19 +122,7 @@ for (i = 0; i < acc.length; i++) {
 
 //get current location
 
-
-$(document).ready(function(){
-    $(".submit").click(function(){
-        getLocation();
-        event.preventDefault();
-    });
-  });
-
-var x = document.getElementById("demo");
-console.log(x);
-
 function getLocation() {
-    event.preventDefault();
   if (navigator.geolocation) {
     navigator.geolocation.watchPosition(showPosition);
   } else { 
@@ -147,7 +134,23 @@ function showPosition(position) {
     let latLong = position.coords.latitude + "," + position.coords.longitude;
     console.log(latLong);
     console.log($('.venue-type').val());
+    return latLong;
     //take .log off later
+}
+
+function calculate(lat,lng){
+    var homeCoord = new Array();
+    console.log(lng);
+    console.log(lat);
+
+    homeCoord[0] = lat;
+    homeCoord[1] = lng;
+    awayCoord = myGeocodeFirst();
+
+    var combinedLat = homeCoord[0]+awayCoord[0];
+    var combinedLong = awayCoord[1]+homeCoord[1];
+
+    console.log(combinedLat+" "+combinedLong);
 }
 
 
