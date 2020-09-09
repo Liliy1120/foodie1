@@ -1,5 +1,7 @@
 const API_KEY = "AIzaSyBdeEMD8FXQ-BwLp1eCbB3IN95zDdnhS7k" //PSAGR4VMTKQJBUN0CIDGUUIA0QA4NA1JH3BMRAANDRFFKGGE" foursquare
 //for google api = 'AIzaSyD3XTQjMngN4V8BsFlm6_eHDQ_zEoyLvYc'
+//for fusion api =  Client ID =KV5xcCMw15aztax0s7REvQ
+//API Key = iAQyc_4wBvpGPNmjmBB1XUP44Gf6hPfTq3_87wFLPAXTtBpEKsxkrx9ZGdd4Nt5AjbvnZl7Mzo2UapGDSePFZzYnbTGsWvhMhNhOFgKm29CIJ85rMtWuslPHNhVZX3Yx
 
 
 //for foursquare
@@ -72,15 +74,15 @@ function getRestaurants(query){
     myHeaders.append("Authorization", "bearer O5zu0u-oz1WYnaeu2INxGAQrSR3kbaxiHCHyHT4H-aqt57J1OclzNEP7c7wDVXIH2f1Pj6HdGbJ1l2Jn3RsauY1UCG95jQmG0c-mcchWG3mCdvpL2-8wPp6xOctPX3Yx");
 
     var requestOptions = {
-  method: 'GET',
-  headers: myHeaders,
-  redirect: 'follow'
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow'
     };
 
     fetch(url, requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
+   .then(response => response.text())
+   .then(result => console.log(result))
+   .catch(error => console.log('error', error));
     //8.call fetch pass url through it (line67)      
     //9.confirm fetch was ok (.then block)
     //10.if not ok we throw an error
