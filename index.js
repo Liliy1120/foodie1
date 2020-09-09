@@ -83,8 +83,7 @@ function getRestaurants(query, location){
         redirect: 'follow'
     };
 
-
-    fetch("https://api.yelp.com/v3/businesses/search", requestOptions)
+    fetch(url, requestOptions)
       .then(response => response.text())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
