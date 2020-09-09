@@ -74,15 +74,16 @@ function getRestaurants(query, location){
     let url = searchURL + '?' + queryString;
     console.log(url);
     
-    let myHeaders = new Headers();
+    var myHeaders = new Headers();
     myHeaders.append("Authorization", "Bearer iAQyc_4wBvpGPNmjmBB1XUP44Gf6hPfTq3_87wFLPAXTtBpEKsxkrx9ZGdd4Nt5AjbvnZl7Mzo2UapGDSePFZzYnbTGsWvhMhNhOFgKm29CIJ85rMtWuslPHNhVZX3Yx");
-    
-    let requestOptions = {
-      method: 'GET',
-      headers: myHeaders,
-      redirect: 'follow'
+
+    var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
     };
-    
+
+
     fetch("https://api.yelp.com/v3/businesses/search", requestOptions)
       .then(response => response.text())
       .then(result => console.log(result))
