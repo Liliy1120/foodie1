@@ -1,4 +1,5 @@
-const API_KEY = "AIzaSyBdeEMD8FXQ-BwLp1eCbB3IN95zDdnhS7k" //PSAGR4VMTKQJBUN0CIDGUUIA0QA4NA1JH3BMRAANDRFFKGGE" foursquare
+const API_KEY = "Bearer iAQyc_4wBvpGPNmjmBB1XUP44Gf6hPfTq3_87wFLPAXTtBpEKsxkrx9ZGdd4Nt5AjbvnZl7Mzo2UapGDSePFZzYnbTGsWvhMhNhOFgKm29CIJ85rMtWuslPHNhVZX3Yx" 
+//PSAGR4VMTKQJBUN0CIDGUUIA0QA4NA1JH3BMRAANDRFFKGGE" foursquare
 //for google api = 'AIzaSyD3XTQjMngN4V8BsFlm6_eHDQ_zEoyLvYc'
 //for fusion api =  Client ID =KV5xcCMw15aztax0s7REvQ
 //API Key = iAQyc_4wBvpGPNmjmBB1XUP44Gf6hPfTq3_87wFLPAXTtBpEKsxkrx9ZGdd4Nt5AjbvnZl7Mzo2UapGDSePFZzYnbTGsWvhMhNhOFgKm29CIJ85rMtWuslPHNhVZX3Yx
@@ -7,7 +8,8 @@ const API_KEY = "AIzaSyBdeEMD8FXQ-BwLp1eCbB3IN95zDdnhS7k" //PSAGR4VMTKQJBUN0CIDG
 //for foursquare
 //Client Id= DVIVVUDWK4W2NALLKRFLU5U00BI2E12OLDLRJ5ODEHZPTZDG
 //Client Secret =PSAGR4VMTKQJBUN0CIDGUUIA0QA4NA1JH3BMRAANDRFFKGGE
-const searchURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
+const searchURL = "https://api.yelp.com/v3/businesses/search"
+//"https://maps.googleapis.com/maps/api/place/nearbysearch/json"
 
 //6. this function
 function formatQueryParams(params) {
@@ -41,10 +43,12 @@ function displayResults(responseJson) {
         //and thumbnail
         $('.search-results').append(
             `<li>
-                <h3>${responseJson.data[i].name}</h3>
-                <img src='${responseJson.data[i].images[0].url}'>
-                <p>${responseJson.data[i].description}</p>
-                <a href="${responseJson.data[i].url}" target="_blank" >Website: ${responseJson.data[i].url}</a>
+                <h3>${responseJson.data[i].businesses[0].name}</h3>
+                <img src='${responseJson.data[i].businesses[0].image_url}'>
+                <p>${responseJson.data[i].businesses[0].location.display_address}</p>
+                <p>${responseJson.data[i].businesses[0].phone}</p>
+                <p>${responseJson.data[i].businesses[0].rating}</p>
+                <a href="${responseJson.data[0].url}" target="_blank" >Website: ${responseJson.data[i].url}</a>
     
             </li>`
         )};
@@ -58,8 +62,7 @@ function getRestaurants(query){
     //4.object called params, params has key-value pairs for each of the URL
     //query parameters we need to provide 
     const params = {
-        key : API_KEY,
-        location: showPosition(position),
+        location: location,
         radius: 32500, 
         keyword: query,
         };
@@ -70,19 +73,20 @@ function getRestaurants(query){
     //by combining the base URL, "?" character, and our query parameters string
     let url = searchURL + '?' + queryString;
     console.log(url);
+    
     var myHeaders = new Headers();
-    myHeaders.append("Authorization", "bearer O5zu0u-oz1WYnaeu2INxGAQrSR3kbaxiHCHyHT4H-aqt57J1OclzNEP7c7wDVXIH2f1Pj6HdGbJ1l2Jn3RsauY1UCG95jQmG0c-mcchWG3mCdvpL2-8wPp6xOctPX3Yx");
-
+        myHeaders.append("Authorization", "Bearer iAQyc_4wBvpGPNmjmBB1XUP44Gf6hPfTq3_87wFLPAXTtBpEKsxkrx9ZGdd4Nt5AjbvnZl7Mzo2UapGDSePFZzYnbTGsWvhMhNhOFgKm29CIJ85rMtWuslPHNhVZX3Yx");
+    
     var requestOptions = {
-    method: 'GET',
-    headers: myHeaders,
-    redirect: 'follow'
+      method: 'GET',
+      headers: myHeaders,
+      redirect: 'follow'
     };
-
-    fetch(url, requestOptions)
-   .then(response => response.text())
-   .then(result => console.log(result))
-   .catch(error => console.log('error', error));
+    
+    fetch("https://api.yelp.com/v3/businesses/search?location=menifee", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
     //8.call fetch pass url through it (line67)      
     //9.confirm fetch was ok (.then block)
     //10.if not ok we throw an error

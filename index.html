@@ -13,7 +13,7 @@
             <div class="container1">
                 <h1>Hello and Welcome to Foodie!</h1>
                 <h2>You're here because youre a foodie! and Here at foodie we help you discover new and interesting places to eat</h2>
-                <button class="accordion">Wait... What is a foodie?</button>
+                <button class="accordion"><h3> What is a foodie?</h3></button>
                 <div class="panel">
                   <p><h3>Well here is the definition from <a href="https://www.urbandictionary.com/define.php?term=foodie" target="_blank" title="Click here if you dont believe me">Urban Dictionary:</a>   <blockquote>“foodie = A person who enjoys eating food, unlike everyone else, who hates food, thinks it's disgusting, and would never consider eating it.
                     <br>Example Scenerio: 
@@ -23,17 +23,29 @@
                 </div>
             </div>
             <div>   
-                <h2>Now let's go find some local places to indulge your inner foodie!</h3>
-                <form action="">
-                    <label for="venue-type">What are you craving?</label>
-                    <input type="text" class="venue-type" placeholder="Bubble Tea" required>
-                    <input type="submit" value="Click here to use current location and submit">
-                </form>
-                <p>Click the button to get your coordinates.</p>
-
-                <button onclick="getLocation()">Try It</button>
-
-                <p id="demo"></p>
+                <section id="locforms" class="selectloc">
+                    <form id="latlong">
+                        <fieldset>
+                            Click here to use your current location
+                            <button class ="button" onclick="getLocation()">Get my Location</button>
+                        </fieldset>
+                    </form>
+                    <form id="dropdown">
+                        <fieldset>
+                            <p>Or type your city or address below</p>
+                            <label for="city_address"></label>
+                            <input type="text" placeholder="City or Address">
+                            <input class ="button" type="submit" value="Lets go!">
+                        </fieldset>
+                    </form>
+                </section>
+                <section class="search-venue hidden">
+                    <h2>Now let's go find some local places to indulge your inner foodie!</h3>
+                    <form action="">
+                        <label for="venue-type">What are you craving?</label>
+                        <input type="text" class="venue-type" placeholder="Bubble Tea" required>
+                    </form>
+                </section>
             </div> 
         <section class="results hidden">
             <h2>Look at Those Delicious Results! Yum!</h2>
