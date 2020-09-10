@@ -8,7 +8,7 @@ const API_KEY = "iAQyc_4wBvpGPNmjmBB1XUP44Gf6hPfTq3_87wFLPAXTtBpEKsxkrx9ZGdd4Nt5
 //for foursquare
 //Client Id= DVIVVUDWK4W2NALLKRFLU5U00BI2E12OLDLRJ5ODEHZPTZDG
 //Client Secret =PSAGR4VMTKQJBUN0CIDGUUIA0QA4NA1JH3BMRAANDRFFKGGE
-const searchURL = "https://api.yelp.com/v3/businesses/search"
+const searchURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search"
 //"https://maps.googleapis.com/maps/api/place/nearbysearch/json"
 
 //6. this function
@@ -65,6 +65,7 @@ function getRestaurants(query, location){
         location: location,
         radius: 32500, 
         term: query,
+        limit: 25,
         };
     //5. once we have the object(params above) we need to convert it to "foo=bar&bizz=bang" format
     //this is where the function formatQueryParams comes in we run params through it
@@ -139,8 +140,8 @@ for (i = 0; i < acc.length; i++) {
 } 
 // end of accordian faq
 
-//get current location
 
+//get current location
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.watchPosition(showPosition);
