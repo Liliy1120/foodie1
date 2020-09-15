@@ -46,7 +46,7 @@ function displayResults(responseJson) {
                 <h3>${responseJson.businesses[i].name}</h3>
                 <img src='${responseJson.businesses[i].image_url}' width="200">
                 <p>${responseJson.businesses[i].location.display_address}</p>
-                <p>${responseJson.businesses[i].phone}</p>
+                <p>${responseJson.businesses[i].display_phone}</p>
                 <p>${responseJson.businesses[i].rating}</p>
                 <a href="${responseJson.businesses[i].url}" target="_blank" >Website: ${responseJson.businesses[0].url}</a>
     
