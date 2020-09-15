@@ -36,25 +36,26 @@ function displayResults(responseJson) {
     console.log(responseJson);
     $('.search-results').empty();
     // iterate through the items array
-    for (let i = 0; i < responseJson.data.length; i++){
+    for (let i = 0; i < responseJson.businesses.length; i++){
         // for each object in the items
         //array, add a list item to the results
         //list with the video title, description,
         //and thumbnail
         $('.search-results').append(
             `<li>
-                <h3>${responseJson.data[i].businesses[0].name}</h3>
-                <img src='${responseJson.data[i].businesses[0].image_url}'>
-                <p>${responseJson.data[i].businesses[0].location.display_address}</p>
-                <p>${responseJson.data[i].businesses[0].phone}</p>
-                <p>${responseJson.data[i].businesses[0].rating}</p>
-                <a href="${responseJson.data[0].url}" target="_blank" >Website: ${responseJson.data[i].url}</a>
+                <h3>${responseJson.businesses[i].name}</h3>
+                <img src='${responseJson.businesses[i].image_url}' width="200">
+                <p>${responseJson.businesses[i].location.display_address}</p>
+                <p>${responseJson.businesses[i].phone}</p>
+                <p>${responseJson.businesses[i].rating}</p>
+                <a href="${responseJson.businesses[i].url}" target="_blank" >Website: ${responseJson.businesses[0].url}</a>
     
             </li>`
-        )};
+        ) 
+      };
     //display the results section
     $('.results').removeClass('hidden');
-    console.log(responseJson.data.description);
+    console.log(responseJson.description);
 };
 
 
