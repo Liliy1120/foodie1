@@ -76,7 +76,7 @@ function getRestaurants(query, location){
     console.log(url);
     
     var myHeaders = new Headers();
-    myHeaders.append("Authorization", "0F8tsfN1kR49K9GTvmOPk7FhNSnkR2qFmmnsbRwnVCI0r63az-c53cIUI7M-oWIcZMXwhbotk0uwiKU-Nu-OpJfT0ekoFijrykJRdzC9ves6CyPNIg5sBS8Vkg9hX3Yx");
+    myHeaders.append("Authorization", "Bearer 0F8tsfN1kR49K9GTvmOPk7FhNSnkR2qFmmnsbRwnVCI0r63az-c53cIUI7M-oWIcZMXwhbotk0uwiKU-Nu-OpJfT0ekoFijrykJRdzC9ves6CyPNIg5sBS8Vkg9hX3Yx");
 
     var requestOptions = {
         method: 'GET',
