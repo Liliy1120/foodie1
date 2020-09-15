@@ -1,4 +1,4 @@
-const API_KEY = "iAQyc_4wBvpGPNmjmBB1XUP44Gf6hPfTq3_87wFLPAXTtBpEKsxkrx9ZGdd4Nt5AjbvnZl7Mzo2UapGDSePFZzYnbTGsWvhMhNhOFgKm29CIJ85rMtWuslPHNhVZX3Yx" 
+const API_KEY = "0F8tsfN1kR49K9GTvmOPk7FhNSnkR2qFmmnsbRwnVCI0r63az-c53cIUI7M-oWIcZMXwhbotk0uwiKU-Nu-OpJfT0ekoFijrykJRdzC9ves6CyPNIg5sBS8Vkg9hX3Yx" 
 //PSAGR4VMTKQJBUN0CIDGUUIA0QA4NA1JH3BMRAANDRFFKGGE" foursquare
 //for google api = 'AIzaSyD3XTQjMngN4V8BsFlm6_eHDQ_zEoyLvYc'
 //for fusion api =  Client ID =KV5xcCMw15aztax0s7REvQ
@@ -76,7 +76,7 @@ function getRestaurants(query, location){
     console.log(url);
     
     var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer iAQyc_4wBvpGPNmjmBB1XUP44Gf6hPfTq3_87wFLPAXTtBpEKsxkrx9ZGdd4Nt5AjbvnZl7Mzo2UapGDSePFZzYnbTGsWvhMhNhOFgKm29CIJ85rMtWuslPHNhVZX3Yx");
+    myHeaders.append("Authorization", "0F8tsfN1kR49K9GTvmOPk7FhNSnkR2qFmmnsbRwnVCI0r63az-c53cIUI7M-oWIcZMXwhbotk0uwiKU-Nu-OpJfT0ekoFijrykJRdzC9ves6CyPNIg5sBS8Vkg9hX3Yx");
 
     var requestOptions = {
         method: 'GET',
@@ -85,13 +85,19 @@ function getRestaurants(query, location){
     };
 
     fetch(url, requestOptions)
-      .then(response => response.text())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error));
-    //8.call fetch pass url through it (line67)      
-    //9.confirm fetch was ok (.then block)
-    //10.if not ok we throw an error
-    //11.otherwise we call response.json and run it through displayResults
+    .then(response => {
+      if (response.ok) {
+          return response.json();
+      }
+//10.if not ok we throw an error
+      throw new Error(response.statusText);
+  })
+//11.otherwise we call response.json and run it through displayResults
+  .then(responseJson => displayResults(responseJson))
+
+  .catch(err => {
+      $('#js-error-message').text(`Something went wrong: ${err.message}`);
+  });
 }
 
 function watchForm() {
