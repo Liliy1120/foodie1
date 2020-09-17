@@ -45,7 +45,7 @@ function displayResults(responseJson) {
                 <img src='${responseJson.businesses[i].image_url}' width="200">
                 <p>${responseJson.businesses[i].location.display_address}</p>
                 <p>${responseJson.businesses[i].display_phone}</p>
-                <p>${responseJson.businesses[i].rating}</p>
+                <p>Rating:${responseJson.businesses[i].rating}/5</p>
                 <a href="${responseJson.businesses[i].url}" target="_blank">Click here for the website!</a>
             </li>`
         ) 
@@ -115,10 +115,10 @@ function watchForm() {
 
 
 function unhideKeyword(){
-    $('.go').submit(function(e){
+    $('.search-venuebtn').submit(function(e){
         e.preventDefault();
         $(".search-venue").removeClass(hidden)
-        $(".button").hide();
+        // $(".button").hide();
         console.log('button worked');
     });
 };
