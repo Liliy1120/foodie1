@@ -28,29 +28,16 @@
                     </div>
                 </div>
                 <div>
-                    <section id="locforms" class="selectloc">
-                        <h3>Where do you want to search?</h3>
-                        <form id="latlong">
-                            <fieldset>
-                                Click here to use your current location
-                                <button class="button lets-go" onclick="getLocation()">Use my Location</button>
-                            </fieldset>
-                        </form>
-                        <form id="dropdown">
-                            <fieldset>
-                                <p>Or type your city or address below</p>
-                                <label for="cityaddress"></label>
-                                <input type="text" placeholder="City or Address" class="city_address">
-                                <input class="button go" type="submit" value="Use this!">
-                            </fieldset>
-                        </form>
-                    </section>
                     <section class="search-venue">
                         <h2>Now let's go find some local places to indulge your inner foodie!</h2>
                         <form class="search-venueform">
-                            <label for="venuetype">What are you craving?</label>
-                            <input type="text" class="venue-type" placeholder="Bubble Tea" required>
-                            <input type="submit" class="search-venuebtn button">
+                                <fieldset>
+                                    <label for="cityaddress">Or type your city or address below</label>
+                                    <input type="text" placeholder="City or Address" class="city_address">
+                                    <label for="venuetype">What are you craving?</label>
+                                    <input type="text" class="venue-type" placeholder="Bubble Tea" required>
+                                    <input type="submit" class="search-venuebtn button">
+                                </fieldset>
                         </form>
                     </section>
                 </div>

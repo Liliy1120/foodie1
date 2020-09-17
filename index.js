@@ -2,8 +2,6 @@ const API_KEY = "0F8tsfN1kR49K9GTvmOPk7FhNSnkR2qFmmnsbRwnVCI0r63az-c53cIUI7M-oWI
 //PSAGR4VMTKQJBUN0CIDGUUIA0QA4NA1JH3BMRAANDRFFKGGE" foursquare
 //for google api = 'AIzaSyD3XTQjMngN4V8BsFlm6_eHDQ_zEoyLvYc'
 //for fusion api =  Client ID =KV5xcCMw15aztax0s7REvQ
-//API Key = iAQyc_4wBvpGPNmjmBB1XUP44Gf6hPfTq3_87wFLPAXTtBpEKsxkrx9ZGdd4Nt5AjbvnZl7Mzo2UapGDSePFZzYnbTGsWvhMhNhOFgKm29CIJ85rMtWuslPHNhVZX3Yx
-
 
 //for foursquare
 //Client Id= DVIVVUDWK4W2NALLKRFLU5U00BI2E12OLDLRJ5ODEHZPTZDG
@@ -48,8 +46,7 @@ function displayResults(responseJson) {
                 <p>${responseJson.businesses[i].location.display_address}</p>
                 <p>${responseJson.businesses[i].display_phone}</p>
                 <p>${responseJson.businesses[i].rating}</p>
-                <a href="${responseJson.businesses[i].url}" target="_blank" >Website: ${responseJson.businesses[0].url}</a>
-    
+                <a href="${responseJson.businesses[i].url}" target="_blank">Click here for the website!</a>
             </li>`
         ) 
       };
@@ -104,7 +101,7 @@ function getRestaurants(query, location){
 function watchForm() {
     $('.search-venueform').submit(event => {
         event.preventDefault();
-        getLocation();
+        //getLocation();
     //2.retrieve two values from the form have
     //theses two values = another term
     console.log($('.venue-type').val())
@@ -126,28 +123,6 @@ function unhideKeyword(){
     });
 };
 
-//start of accordian faq 
-var acc = document.getElementsByClassName("accordion");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    /* Toggle between adding and removing the "active" class,
-    to highlight the button that controls the panel */
-    this.classList.toggle("active");
-
-    /* Toggle between hiding and showing the active panel */
-    var panel = this.nextElementSibling;
-    if (panel.style.display === "block") {
-      panel.style.display = "none";
-    } else {
-      panel.style.display = "block";
-    }
-  });
-} 
-// end of accordian faq
-
-
 //get current location
 function getLocation() {
   if (navigator.geolocation) {
@@ -166,5 +141,5 @@ function showPosition(position) {
 }
 
 //1.when app loads run this function
-unhideKeyword();
+//unhideKeyword();
 watchForm();
