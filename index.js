@@ -63,7 +63,8 @@ function getRestaurants(query, location){
         location: location,
         radius: 32500, 
         term: query,
-        limit: 25,
+        limit: 5,
+        categories: "gourmet, All",
         };
     //5. once we have the object(params above) we need to convert it to "foo=bar&bizz=bang" format
     //this is where the function formatQueryParams comes in we run params through it
@@ -117,28 +118,47 @@ function watchForm() {
 function unhideKeyword(){
     $('.search-venuebtn').submit(function(e){
         e.preventDefault();
-        $(".search-venue").removeClass(hidden)
+        $("section#hidden").removeAttr('id')
         // $(".button").hide();
         console.log('button worked');
     });
 };
 
-//get current location
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.watchPosition(showPosition);
-  } else { 
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
-}
+//start of accordian faq 
+var acc = document.getElementsByClassName("accordion");
+var i;
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    /* Toggle between adding and removing the "active" class,
+    to highlight the button that controls the panel */
+    this.classList.toggle("active");
+    /* Toggle between hiding and showing the active panel */
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+} 
+// end of accordian faq
 
-function showPosition(position) {
-    let latLong = position.coords.latitude + "," + position.coords.longitude;
-    console.log(latLong);
-    console.log($('.venue-type').val());
-    return latLong;
-    //take .log off later
-}
+// START OF LOADER
+document.onreadystatechange = function() { 
+  if (document.readyState !== "complete") { 
+      document.querySelector( 
+        "body").style.visibility = "hidden"; 
+      document.querySelector( 
+        "#loader").style.visibility = "visible"; 
+  } else { 
+      document.querySelector( 
+        "#loader").style.display = "none"; 
+      document.querySelector( 
+        "body").style.visibility = "visible"; 
+  } 
+}; 
+// END OF LOADER
+
 
 //1.when app loads run this function
 //unhideKeyword();

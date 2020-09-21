@@ -1,5 +1,10 @@
 * {
     box-sizing:border-box;
+    text-align: center;
+}
+
+a{
+    color:orange;
 }
 
 h1 {
@@ -13,16 +18,28 @@ h2 {
 }
 
 h3 {
-    font-size: 15px;
+    font-size: 25px;
 }
 
-.hidden {
+.logo {
+    font-family: 'Pacifico', cursive;
+}
+
+#hidden {
     display: none;
 }
 
 a {
     text-decoration: none;
     color: rgb(236, 78, 32);
+}
+
+label {
+    font-size: 20px;
+}
+
+input {
+    font-size: 18px;
 }
 
 body {
@@ -93,6 +110,7 @@ input ::placeholder {
     transition: 0.4s;
     font-family: 'Cormorant Garamond', serif;
     font-weight: lighter;
+    font-size: 20px;
 }
   
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
@@ -109,7 +127,7 @@ input ::placeholder {
 } 
 .accordion:after {
     content: '\02795'; /* Unicode character for "plus" sign (+) */
-    font-size: 13px;
+    font-size: 20px;
     font-family: 'Cormorant Garamond', serif;
     font-weight: lighter;
     color: white;
@@ -160,6 +178,10 @@ input ::placeholder {
     border: 3px dotted white;
 }
 
+.search-venuebtn {
+    font-size: 20px;
+}
+
 .error-message {
     color: red;
 }
@@ -183,3 +205,90 @@ input ::placeholder {
 .results {
     background: 
 }
+
+@media only screen and (min-width: 750px) {
+    .container1 {
+        margin:40px;
+    }
+
+    .search-venue {
+        margin: 40px;
+    }
+
+    .background {
+        height: 100vh;
+    }
+
+    fieldset {
+        width: 600px
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .container1 {
+        margin:60px;
+    }
+
+    .search-venue {
+        margin: 60px;
+    }
+
+    .background {
+        height: 90vh;
+    }
+}
+
+/*  START OF LOADER */
+/* Center the loader */
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Add animation to "page content" */
+#loader { 
+    border: 12px solid #f3f3f3; 
+    border-radius: 50%; 
+    border-top: 12px solid #444444; 
+    width: 70px; 
+    height: 70px; 
+    animation: spin 1s linear infinite; 
+} 
+  
+@keyframes spin { 
+    100% { 
+        transform: rotate(360deg); 
+    } 
+} 
+  
+.center { 
+    position: absolute; 
+    top: 0; 
+    bottom: 0; 
+    left: 0; 
+    right: 0; 
+    margin: auto; 
+} 
+/* end of loader */

@@ -15,7 +15,7 @@
             <section class="background flex">
                 <div class="container1">
                     <h1>Hello and Welcome to Foodie!</h1>
-                    <h2>You're here because youre a foodie! and Here at foodie we help you discover new and interesting places to eat</h2>
+                    <h2>You're here because you're a foodie! and Here at foodie we help you discover new and interesting places to eat</h2>
                     <button class="accordion">What is a foodie?</button>
                     <div class="panel">
                         <h3>Well here is the definition from <a href="https://www.urbandictionary.com/define.php?term=foodie" target="_blank" title="Click here if you dont believe me">Urban Dictionary:</a></h3>
@@ -24,26 +24,27 @@
                             <br> Person #1: I'm a foodie, I love eating food!
                             <br> Person #2: Wow, you're so unique. I hate food and wouldn't eat it even if I had to to stay alive.”
                         </blockquote>
-                        <h3> So, basically youre a foodie and you are right at home. As a foodie if are tired of seeing Starbucks when you search for local coffee shops, you've come to the right place, So welcome home foodie!</h3>
+                        <h3> So, basically you're a foodie and you are right at home. As a foodie if are tired of seeing Starbucks when you search for local coffee shops, you've come to the right place, So welcome home foodie!</h3>
                     </div>
                 </div>
                 <div>
                     <section class="search-venue">
-                        <h2>Now let's go find some local places to indulge your inner foodie!</h2>
+                        <h2>Now let's go find some local places to indulge your inner <span class="logo">Foodie!</span></h2>
                         <form class="search-venueform">
                                 <fieldset>
-                                    <label for="cityaddress">Or type your city or address below</label>
-                                    <input type="text" placeholder="City or Address" class="city_address">
+                                    <label for="cityaddress">Type your address, zipcode or city and state below</label>
+                                    <input type="text" placeholder="address, city and state, or just zipcode" class="city_address">
                                     <label for="venuetype">What are you craving?</label>
                                     <input type="text" class="venue-type" placeholder="Bubble Tea" required>
-                                    <input type="submit" class="search-venuebtn button">
+                                    <input type="submit" class="search-venuebtn button" value="Let's go!">
                                 </fieldset>
                         </form>
                     </section>
                 </div>
             </section>
-            <section class="results flex hidden">
+            <section class="results flex"> 
                 <h2>Look at Those Delicious Results! Yum!</h2>
+                <div id="loader" class="center"></div>
                 <p id="js-error-message" class="error-message"></p>
                 <ul class="search-results">
                 </ul>
