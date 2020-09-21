@@ -116,10 +116,9 @@ function watchForm() {
 
 
 function unhideKeyword(){
-    $('.search-venuebtn').submit(function(e){
+    $('form').submit(function(e){
         e.preventDefault();
-        $("section#hidden").removeAttr('id')
-        // $(".button").hide();
+        $(".results").show()
         console.log('button worked');
     });
 };
@@ -161,5 +160,5 @@ document.onreadystatechange = function() {
 
 
 //1.when app loads run this function
-//unhideKeyword();
+unhideKeyword();
 watchForm();

@@ -24,10 +24,12 @@ h3 {
 .logo {
     font-family: 'Pacifico', cursive;
 }
-
-#hidden {
+/* display onclick */
+  
+.results {
     display: none;
 }
+/* end of display onclick */
 
 a {
     text-decoration: none;
@@ -292,3 +294,4 @@ input ::placeholder {
     margin: auto; 
 } 
 /* end of loader */
+
