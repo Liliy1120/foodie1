@@ -223,7 +223,7 @@ label {
     background: 
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 700px) {
     .container1 {
         margin:40px;
     }
@@ -233,7 +233,7 @@ label {
     }
 
     .background {
-        height: 110vh;
+        height: 100vh;
     }
 
     fieldset {
