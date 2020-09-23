@@ -63,8 +63,8 @@ function getRestaurants(query, location){
         location: location,
         radius: 32500, 
         term: query,
-        limit: 5,
-        categories: "gourmet, All",
+        limit: 10,
+        categories: "food, all",
         };
     //5. once we have the object(params above) we need to convert it to "foo=bar&bizz=bang" format
     //this is where the function formatQueryParams comes in we run params through it

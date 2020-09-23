@@ -15,7 +15,7 @@
             <section class="background flex">
                 <div class="container1">
                     <h1>Hello and Welcome to Foodie!</h1>
-                    <h2>You're here because you're a foodie! and Here at foodie we help you discover new and interesting places to eat</h2>
+                    <h2>You're here because you're a foodie! and here is where you'll discover new and interesting places to eat!</h2>
                     <button class="accordion">What is a foodie?</button>
                     <div class="panel">
                         <h3>Well here is the definition from <a href="https://www.urbandictionary.com/define.php?term=foodie" target="_blank" title="Click here if you dont believe me">Urban Dictionary:</a></h3>
@@ -33,9 +33,9 @@
                         <form class="search-venueform">
                                 <fieldset>
                                     <label for="cityaddress">Type your address, zipcode or city and state below</label>
-                                    <input type="text" placeholder="address, city and state, or just zipcode" class="city_address">
+                                    <input type="text" placeholder="address, city and state, or just zipcode" class="city_address" id="cityaddress" required>
                                     <label for="venuetype">What are you craving?</label>
-                                    <input type="text" class="venue-type" placeholder="Bubble Tea" required>
+                                    <input type="text" class="venue-type" placeholder="Bubble Tea" id="venuetype" required>
                                     <input type="submit" class="search-venuebtn button" value="Let's go!" onclick="unhideKeyword()">
                                 </fieldset>
                         </form>
